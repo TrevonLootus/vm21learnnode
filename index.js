@@ -1,10 +1,10 @@
 const express = require('express');
-const app = require('path')
+const path = require('path')
 const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.sendFile (path.resolve(_dirname, 'index.html'));
+  res.sendFile (path.resolve(__dirname, 'index.html'));
   //console.log(path.resolve(_dirname, 'index.html'));
 });
 
