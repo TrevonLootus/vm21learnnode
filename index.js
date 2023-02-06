@@ -9,15 +9,22 @@ nunjucks.configure('views', {
   express: app
 });
 
+app.use(express.urlencoded({extended:true}));
+
 app.get('/', (req, res) => {
   res.render('index.njk');
+});
+
+app.get('/page', (req, res) => {
+  res.render('page.njk', {page: req.query.p});
   });
 
-app.get('/greeting', (req, res) => {
-  console.log(req.query.name);
-  res.render('index.njk', {
-    name: req.query.name,
-    age: req.query.age
+app.post('/greeting', (req, res) => {
+  console.log(req.body);
+  console.log(req.body);
+  res.render('greeting.njk', {
+    name: req.body.name,
+    age: req.body.age
   });
 });
 
@@ -30,7 +37,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/contacts', (req, res) => {
-  res.render('contracts.njk')
+  res.render('contract.njk')
 });
 
 app.get('/gallery', (req, res) => {

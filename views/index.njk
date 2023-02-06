@@ -3,9 +3,19 @@
 {% if(name and age) %}
     <h1>Hello {{ name }}, you are {{ age }} years old</h1>
     {% endif %}
-    <form action="/greeting" method="GET">
+    <form action="/greeting?value=something" method="POST">
         <input type="text" name="name" placeholder="Enter your name">
         <input type="number" name="age" placeholder="Age" max="100">
         <input type="submit">
     <form>
+
+    <ul>
+        {% for num in [1,2,3,4,5,7,8,9,10] %}
+        <li>
+            <a href="/page?p={{num}}">
+            {{num}}
+        </a>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
