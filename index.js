@@ -9,31 +9,32 @@ nunjucks.configure('views', {
   express: app
 });
 
-
 app.get('/', (req, res) => {
-  res.sendFile (path.resolve(__dirname, 'index.njk'));
-  //console.log(path.resolve(_dirname, 'index.html'));
-  res.render('index.njk')
+  res.render('index.njk');
+  });
+
+app.get('/greeting', (req, res) => {
+  console.log(req.query.name);
+  res.render('index.njk', {
+    name: req.query.name,
+    age: req.query.age
+  });
 });
 
 app.get('/me', (req, res) => {
-  res.sendFile (path.resolve(__dirname, 'me.njk'));
-  res.render('index.njk')
+  res.render('me.njk')
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile (path.resolve(__dirname, 'about.njk'));
-  res.render('index.njk')
+  res.render('about.njk')
 });
 
 app.get('/contacts', (req, res) => {
-  res.sendFile (path.resolve(__dirname, 'contacts.njk'));
-  res.render('index.njk')
+  res.render('contracts.njk')
 });
 
 app.get('/gallery', (req, res) => {
-  res.sendFile (path.resolve(__dirname, 'gallery.njk'));
-  res.render('index.njk')
+  res.render('gallery.njk')
 });
 
 
